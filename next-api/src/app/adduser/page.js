@@ -1,6 +1,8 @@
 "use client"
 import Link from "next/link"
 import { useState } from "react"
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 export default function page() {
     const[name,setName] = useState("")
@@ -15,9 +17,9 @@ export default function page() {
 
          response = await response.json()
         if(response.success){
-            alert("add data")
+          toast.success("Successfully Added")
         }else{
-            alert("error")
+          toast.error("Somthing error")
         }
         console.log(response)
     }
@@ -28,6 +30,7 @@ export default function page() {
       <input type="text" placeholder="Enter Your Age" value={age} onChange={(e)=>setAge(e.target.value)}/>
       <input type="text" placeholder="Enter Your Email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
       <button onClick={addUser}>Add User</button>
+      <ToastContainer />
       <br/>
       <br/>
       <Link href='/users'> go to the users page</Link>
