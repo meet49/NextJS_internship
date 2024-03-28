@@ -3,12 +3,14 @@ import { useState } from "react"
 import "../style.css"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from "next/navigation";
 
 export default function page() {
     const[name,setName]=useState("")
     const[price,setPrice]=useState("")
     const[color,setColor]=useState("")
     const[company,setCompnay]=useState("")
+    const router = useRouter()
 
     const addData = async () =>{
         const res = await fetch("http://localhost:3000/api/products",{
@@ -18,6 +20,9 @@ export default function page() {
         const result = await res.json()
         if(result.success){
             toast.success("Product Add Successfully..")
+            setTimeout(()=>{
+                router.push('/products'); 
+            },1000)
         }
         else{
             toast.error("somthing wrong..")
