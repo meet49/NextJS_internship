@@ -17,13 +17,14 @@ export default function page() {
       })
 
       const data = await res.json()
-
+      console.log(data)
       if(data.result !== null){
         router.push("/managetask")
       }else{
         router.push("/signup")
       }
     }
+    
     return (
         <div>
             <div class="bg-gray-100 flex h-screen items-center justify-center px-4 sm:px-6 lg:px-8">

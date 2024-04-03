@@ -32,17 +32,17 @@ function page(props) {
     };
     return (
         <div>
-            <div className="container mt-20 flex  flex-col justify-center items-center">
-                <div className="title text-center font-black text-3xl font-serif">Edit Tsk</div>
+            <div className="mt-24 flex  flex-col justify-center items-center  ">
+                <div className="title text-center font-black text-5xl font-serif">Edit Tsk</div>
                 <div className="content flex  flex-col justify-center items-center">
                     <div className="user-details">
                         <div className="input-box mt-5">
-                            <span className="details font-medium">Task Name</span>
-                            <input type="text" placeholder="Enter The Task Name" className=" ml-5 border-black border-2 rounded-lg" defaultValue={task} onChange={(e) => setTask(e.target.value)} />
+                            <span className="details font-medium text-2xl">Task Name</span>
+                            <input type="text" placeholder="Enter The Task Name" className=" ml-5 border-black border-2 rounded-lg text-center" defaultValue={task} onChange={(e) => setTask(e.target.value)} />
                         </div>
                     </div>
                     <div className="button">
-                        <button className=" text-black border-2 border-solid border-purple-300 bg-purple-500 mt-6 w-20 rounded-lg" onClick={updateTask}>Submit</button>
+                        <button className=" font-bold border-2 border-solid  bg-purple-500 mt-6 w-[150px] rounded-lg h-[50px]" onClick={updateTask}>Submit</button>
                     </div>
                 </div>
 

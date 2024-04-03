@@ -1,5 +1,6 @@
 "use client"
 
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 
@@ -7,12 +8,18 @@ export default function page() {
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const router = useRouter()
 
-    const handleData = async () =>{
-        await fetch("http://localhost:3000/api/signup",{
+    const handleData = async (e) =>{
+        e.preventDefault()
+        let res = await fetch("http://localhost:3000/api/signup",{
             method:"POST",
             body:JSON.stringify({username,email,password})
         })
+        console.log(res)
+        if(res.ok){
+            router.push("/login")
+        }
     }
 
     return (

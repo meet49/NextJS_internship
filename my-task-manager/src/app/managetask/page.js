@@ -2,6 +2,7 @@
 import React from 'react'
 import DeleteTask from '../componets/DeleteTask'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 const getTask = async () => {
     const res = await fetch("http://localhost:3000/api/tasks")
@@ -18,7 +19,6 @@ async function Manage() {
         });
     }
 
- 
     return (
         <div className="mt-16">
             <div>
@@ -33,7 +33,7 @@ async function Manage() {
                     <tbody className="text-lg font-medium">
                         {
                             tasks.map((item) => (
-                                !item.check && 
+                                !item.check &&
                                 <tr key={item.id} className="bg-white border-b  bg-gradient-to-r from-cyan-500 to-blue-500" >
                                     <td className="py-4 px-6 text-center">{item.task}</td>
                                     <td className="py-4 px-4"><Link href={"managetask/" + item._id}>Edit</Link></td>
@@ -57,10 +57,10 @@ async function Manage() {
                     <tbody className="text-lg  font-medium">
                         {
                             tasks.map((item) => (
-                                item.check && 
+                                item.check &&
                                 <tr key={item._id} className="bg-white border-b  bg-gradient-to-r from-cyan-500 to-blue-500">
                                     <td className="py-4 px-6 text-center">{item.task}</td>
-                                    <td className="py-4 px-6 text-center"><DeleteTask id={item._id} /></td>   
+                                    <td className="py-4 px-6 text-center"><DeleteTask id={item._id} /></td>
                                 </tr>
                             ))
                         }
