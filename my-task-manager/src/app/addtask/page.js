@@ -22,24 +22,22 @@ function Add() {
         else {
             toast.error("somthing wrong..")
         }
-
-
     }
 
 
 
     return (
-        <div className=" mt-24 flex  flex-col justify-center items-center bg">
+        <div className=" mt-24 flex  flex-col justify-center items-center ">
             <div className="title text-center font-black text-5xl font-serif">Add Tsk</div>
             <div className="content flex  flex-col justify-center items-center">
                 <div className="user-details">
-                    <div className="input-box mt-5">
+                    <div className="input-box mt-5 ">
                         <span className="details font-medium text-2xl">Task Name</span>
-                        <input type="text" placeholder="Enter The Task Name" className=" ml-5 border-black border-2 rounded-lg" value={task} onChange={(e) => setTask(e.target.value)} />
+                        <input type="text" placeholder="Enter The Task Name" className=" ml-5 border-black border-2 rounded-lg text-center" value={task} onChange={(e) => setTask(e.target.value)} />
                     </div>
                 </div>
                 <div className="button">
-                    <button className=" text-black border-2 border-solid border-purple-300 bg-purple-500 mt-6 w-20 rounded-lg" onClick={handleSubmit}>Submit</button>
+                    <button className="  font-bold border-2 border-solid  bg-purple-500 mt-6 w-[150px] rounded-lg h-[50px]" onClick={handleSubmit}>Submit</button>
                 </div>
             </div>
             <ToastContainer />
